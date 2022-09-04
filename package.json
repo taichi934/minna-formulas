@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    // change nodemon to node when deployed
     "start": "nodemon ./bin/www",
     "start:debug": "nodemon -L --inspect-brk=0.0.0.0:3001 ./bin/www"
   },
