@@ -1,0 +1,27 @@
+:root {
+  --border-color: #696969;
+}
+
+#formulas > .card {
+  border-color: var(--border-color);
+  border-width: thick;
+  margin: 2rem;
+}
+
+/* div.container a button {
+  border-width: 2px;
+  border-color: var(--border-color);
+} */
+
+.post-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: aliceblue;
+}
+nav a:hover {
+  color: gray;
+}
