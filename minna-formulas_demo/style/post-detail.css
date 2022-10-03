@@ -1,0 +1,15 @@
+#var-1 {
+  color: red;
+}
+
+#var-2 {
+  color: blue;
+}
+
+nav a {
+  text-decoration: none;
+  color: aliceblue;
+}
+nav a:hover {
+  color: gray;
+}

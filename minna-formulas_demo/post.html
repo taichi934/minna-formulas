@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css" integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js" integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+<link rel="stylesheet" href="style/post.css">
+</head>
+<body>
+    <!-- navbar +++++++++++++++++++++++++++++++++++++++ -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info mb-3">
+    <div class="container">
+        <a class="navbar-brand" href="/index.html">みんなの公式</a>
+
+        <!-- <a href="/post.html" class=""><button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        投稿
+        </button></a> -->
+    </div>
+    </nav>
+
+
+    <div class="form container mb-5">
+        <form>
+            <div class="row mb-5">
+                <label for="exampleInputEmail1" class="form-label">タイトル</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="〇〇の公式">
+            </div>
+            <div class="row mb-5">
+                <label for="exampleInputPassword1" class="form-label">数式</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="tex表記　例：x = {-b \pm \sqrt{b^2-4ac} \over 2a}">
+                <div id="emailHelp" class="form-text">tex表記がわからない場合，以下を参照</div>
+                <a href="http://" class="ref-site">参考サイト</a>
+            </div>
+            <div class="variables row">
+                <div class="variable row mb-3">
+                    <label for="exampleInputEmail1" class="form-label">変数1</label>
+                    <div class="col-2">
+                        <input type="email" class="variable-char form-control" id="" aria-describedby="emailHelp" placeholder="変数：x">
+                    </div>
+                    <div class="col-8">
+                        <input type="email" class="variable-comment form-control" id="" aria-describedby="emailHelp" placeholder="変数の説明：〇〇の長さ，値">
+                    </div>
+                    <div class="col-2">
+                        <div id="variable-color" class="">
+                            <select class="form-select" name="variable-color" onchange="changeColor(this)">
+                                <option value="0">黒</option>
+                                <option value="1">赤</option>
+                                <option value="2">青</option>
+                                <option value="3">緑</option>
+                                <option value="4">茶</option>
+                                <option value="5">黄</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-5 d-flex">
+                <div class="col text-center">
+                    <div class="add-variable btn btn-secondary">変数を追加</div>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <textarea name="" id="" cols="30" rows="10" placeholder="数式の説明"></textarea>
+            </div>
+            <div class="button d-flex justify-content-center mt-3">
+                <button type="button"  class="row btn btn-secondary" onclick="OnRedirectClick();">送信</button>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        const OnRedirectClick = () =>{
+            document.location.href = "index.html";
+        };
+
+        const changeColor = (sel) =>{
+            switch(sel.value) {
+                case "0":
+                    sel.style.color = 'black';
+                    break;
+                case "1":
+                    sel.style.color = 'red';
+                    break;
+                case "2":
+                    sel.style.color = 'blue';
+                    break;
+                case "3":
+                    sel.style.color = 'green';
+                    break;
+                case "4":
+                    sel.style.color = 'brown';
+                    break;
+                case "5":
+                    sel.style.color = 'yellow';
+                    break;
+                default:
+                    break;
+            }
+        };
+
+        const addButton = document.getElementsByClassName("add-variable")[0];
+        let insertIndex = 2;
+        addButton.addEventListener("click", ()=>{
+            const variables = document.querySelector(".variables");
+            variables.innerHTML += `
+            <div class="variable row mb-3">
+                <label for="exampleInputEmail1" class="form-label">変数${insertIndex++}</label>
+                <div class="col-2">
+                    <input type="email" class="variable-char form-control" id="" aria-describedby="emailHelp" placeholder="変数：x">
+                </div>
+                <div class="col-8">
+                    <input type="email" class="variable-comment form-control" id="" aria-describedby="emailHelp" placeholder="変数の説明：〇〇の長さ，値">
+                </div>
+                <div class="col-2">
+                    <div id="variable-color" class="">
+                        <select class="form-select" name="variable-color" onchange="changeColor(this)">
+                            <option value="0">黒</option>
+                            <option value="1">赤</option>
+                            <option value="2">青</option>
+                            <option value="3">緑</option>
+                            <option value="4">茶</option>
+                            <option value="5">黄</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            `;
+        });
+    </script>
+</body>
+</html></html>
